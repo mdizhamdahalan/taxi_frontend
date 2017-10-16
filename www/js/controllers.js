@@ -385,7 +385,7 @@ angular.module('starter.controllers', [])
                     //button.classList.add("disabled");
                     button.innerHTML = "Chuyến đã được mua";
                     button.removeAttribute("ng-click");
-                } else if (parseInt(response[i].coin > parseInt(taxiData.coin)) { // not enough money
+                } else if (parseInt(response[i].coin) > parseInt(taxiData.coin)) { // not enough money
                     //button.classList.add("disabled");
                     button.innerHTML = "Bạn không đủ tiền";
                     button.removeAttribute("ng-click");
@@ -432,7 +432,7 @@ angular.module('starter.controllers', [])
         //console.log($scope.thisTrip);
         //console.log(parseInt($scope.thisTrip.coin) > 0 && parseInt($scope.thisTrip.status) == 0 && pricebuy <= parseInt(taxiData.coin) && parseInt($scope.thisTrip.seat) <= parseInt(taxiData.seat) && diff_sec > 0);
 
-        if (parseInt($scope.thisTrip.coin) > 0 && parseInt($scope.thisTrip.status) == 0 && parseInt(response[i].coin <= parseInt(taxiData.coin) && parseInt($scope.thisTrip.seat) <= parseInt(taxiData.seat) && diff_sec > 0 ) {
+        if (parseInt($scope.thisTrip.coin) > 0 && parseInt($scope.thisTrip.status) == 0 && parseInt(response[i].coin) <= parseInt(taxiData.coin) && parseInt($scope.thisTrip.seat) <= parseInt(taxiData.seat) && diff_sec > 0 ) {
             TripsService.buy($scope.tripID, taxiData.id).then(function(response) {
                 //console.log(response);
                 if (response == 1) {
