@@ -385,7 +385,7 @@ angular.module('starter.controllers', [])
                     //button.classList.add("disabled");
                     button.innerHTML = "Chuyến đã được mua";
                     button.removeAttribute("ng-click");
-                } else if (pricebuy > parseInt(taxiData.coin)) { // not enough money
+                } else if (parseInt(response[i].coin > parseInt(taxiData.coin)) { // not enough money
                     //button.classList.add("disabled");
                     button.innerHTML = "Bạn không đủ tiền";
                     button.removeAttribute("ng-click");
