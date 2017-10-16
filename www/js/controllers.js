@@ -470,7 +470,7 @@ angular.module('starter.controllers', [])
                 errorInfo = "Chuyến không có sẵn";
             } else if (status == 1) {
                 errorInfo = "Chuyến này đã được mua hoặc không tồn tại";
-            } else if (pricebuy > parseInt(taxiData.coin)) {
+            } else if (parseInt(response[i].coin) > parseInt(taxiData.coin)) {
                 errorInfo = "Bạn không đủ tiền để mua chuyến này";
             } else if (parseInt($scope.thisTrip.seat) > parseInt(taxiData.seat)) {
                 errorInfo = "Xe bạn không đủ chỗ";
