@@ -216,7 +216,7 @@ angular.module('starter.controllers', [])
                         document.getElementById("buy_trip_"+response[i].id).innerHTML = "Đã mua";
                     } else if (parseInt(response[i].status) == 1) {
                         document.getElementById("buy_trip_"+response[i].id).innerHTML = "Đã được mua";
-                    } else if (pricebuy > parseInt(taxiData.coin)) { // not enough money
+                    } else if (parseInt(response[i].coin) > parseInt(taxiData.coin)) { // not enough money
                         document.getElementById("buy_trip_"+response[i].id).innerHTML = "Bạn không đủ tiền";
                     } else if (diff_sec <= 0) {
                         document.getElementById("buy_trip_"+response[i].id).innerHTML = "Hết hạn";
