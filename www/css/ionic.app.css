@@ -10076,3 +10076,4 @@ a.button {
   height: 20px;
   border-radius: 5px; }
 button{color: #fff!important;}
+round[ng-show="1"].ng-hide,notround[ng-show="1"].ng-hide{display:inline-block!important}

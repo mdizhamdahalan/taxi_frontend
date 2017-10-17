@@ -333,7 +333,7 @@ angular.module('starter.controllers', [])
     }
 
     $scope.showInfo = function (response, isBuyCallback = true) {
-        var button = document.getElementById("buyTrip");
+        var button = document.getElementById("buyTrip_"+response.id);
         //button.classList.add("disabled");
         button.innerHTML = "Đã mua";
         document.getElementById("trip_more_"+response.id).classList.remove("ng-hide");
@@ -378,7 +378,8 @@ angular.module('starter.controllers', [])
             //console.log(document.getElementById("trip_pricebuyv_"+response.id));
             document.getElementById("trip_pricebuyv_"+response.id).innerHTML = 'Giá mua ngay: <b class="trip-coin-view">'+pricebuy+'k</b>';
 
-            if (response.taxiid == taxiData.id) {
+            if (parseInt(response.taxiid) == parseInt(taxiData.id)) {
+                console.log(response);
                 $scope.showInfo(response, false);
             } else {
                 if (parseInt(response.status) == 1) { // taken
