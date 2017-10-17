@@ -440,8 +440,22 @@ angular.module('starter.controllers', [])
                     newCoin = taxiData.coin = taxiData.coin - $scope.trip.coin;
                     window.localStorage.setItem("session_taxi", taxiData);
                     document.getElementsByTagName("coin")[0].innerHTML = newCoin+"k";
-                    $scope.showInfo($scope.trip);
+                    $scope.showInfo($scope.thisTrip);
                     $interval.cancel($scope.theInterval);
+                    var alertPopup = $ionicPopup.show({
+                      template: 'Mua chuyến thành công',
+                      title: 'Thành công',
+                      scope: $scope,
+                      buttons: [
+                        {
+                            text: 'Đóng',
+                            type: 'button-assertive'
+                        }
+                      ]
+                    });
+                    alertPopup.then(function(res) {
+                      //console.log('Closed!', res);
+                    });
                 } else {
                     if (response == -1) {
                         errorInfo = "Bạn không đủ tiền để mua chuyến này";
