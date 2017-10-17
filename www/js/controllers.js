@@ -433,7 +433,7 @@ angular.module('starter.controllers', [])
         //console.log(parseInt($scope.thisTrip.coin) > 0 && parseInt($scope.thisTrip.status) == 0 && pricebuy <= parseInt(taxiData.coin) && parseInt($scope.thisTrip.seat) <= parseInt(taxiData.seat) && diff_sec > 0);
 
         //if (parseInt($scope.thisTrip.coin) > 0 && parseInt($scope.thisTrip.status) == 0 && pricebuy <= parseInt(taxiData.coin) && parseInt($scope.thisTrip.seat) <= parseInt(taxiData.seat) && diff_sec > 0 ) {
-        if (parseInt($scope.thisTrip.coin) > 0 && parseInt($scope.thisTrip.status) == 0 && pricebuy <= parseInt(taxiData.coin) && parseInt($scope.thisTrip.seat) <= parseInt(taxiData.seat) ) {
+        if (parseInt($scope.thisTrip.coin) > 0 && parseInt($scope.thisTrip.status) == 0 && parseInt($scope.thisTrip.coin) <= parseInt(taxiData.coin) && parseInt($scope.thisTrip.seat) <= parseInt(taxiData.seat) ) {
             TripsService.buy($scope.tripID, taxiData.id).then(function(response) {
                 //console.log(response);
                 if (response == 1) {
