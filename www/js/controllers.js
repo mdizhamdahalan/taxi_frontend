@@ -336,26 +336,26 @@ angular.module('starter.controllers', [])
         var button = document.getElementById("buyTrip");
         //button.classList.add("disabled");
         button.innerHTML = "Đã mua";
-        document.getElementsByTagName("more")[0].classList.remove("ng-hide");
-        document.getElementsByTagName("pnr")[0].innerHTML = response.PNR;
-        document.getElementsByTagName("price")[0].innerHTML = response.price;
+        document.getElementById("trip_more_"+response.id).classList.remove("ng-hide");
+        document.getElementById("trip_pnr_"+response.id).innerHTML = response.PNR;
+        document.getElementById("trip_price_"+response.id).innerHTML = response.price;
 
         if (isBuyCallback) {
             TripsService.getFullInfo(response.id, taxiData.id).then(function(response_adr) {
-                document.getElementsByTagName("from")[0].innerHTML = response_adr.addressfrom_full;
-                document.getElementsByTagName("to")[0].innerHTML = response_adr.addressto_full;
-                document.getElementsByTagName("phone")[0].innerHTML = response_adr.phone;
-                document.getElementsByTagName("phone")[0].classList.remove("ng-hide");
+                document.getElementById("trip_from_"+response.id).innerHTML = response_adr.addressfrom_full;
+                document.getElementById("trip_to_"+response.id).innerHTML = response_adr.addressto_full;
+                document.getElementById("trip_phone_"+response.id).innerHTML = response_adr.phone;
+                document.getElementById("trip_phone_"+response.id).classList.remove("ng-hide");
             });
         } else {
-            document.getElementsByTagName("from")[0].innerHTML = response.addressfrom_full;
-            document.getElementsByTagName("to")[0].innerHTML = response.addressto_full;
-            document.getElementsByTagName("phone")[0].innerHTML = response.phone;
-            document.getElementsByTagName("phone")[0].classList.remove("ng-hide");
+            document.getElementById("trip_from_"+response.id).innerHTML = response.addressfrom_full;
+            document.getElementById("trip_to_"+response.id).innerHTML = response.addressto_full;
+            document.getElementById("trip_phone_"+response.id).innerHTML = response.phone;
+            document.getElementById("trip_phone_"+response.id).classList.remove("ng-hide");
         }
 
-        document.getElementsByTagName("name")[0].innerHTML = response.name;
-        document.getElementsByTagName("detailss")[0].innerHTML = response.details;
+        document.getElementById("trip_name_"+response.id).innerHTML = response.name;
+        document.getElementById("trip_details_"+response.id).innerHTML = response.details;
         var timeEle = document.getElementById("trip_timev_"+response.id);
         timeEle.parentNode.removeChild(timeEle);
         button.removeAttribute("ng-click");
