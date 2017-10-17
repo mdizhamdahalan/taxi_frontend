@@ -323,7 +323,7 @@ angular.module('starter.controllers', [])
         var diff_sec = end_time - now;
 
         if (diff_sec <= 0) {
-            document.getElementById("timev")[0].innerHTML = '<span class="trip-view-time_left passed">Hết hạn</span>';
+            document.getElementById("trip_timev_"+response.id).innerHTML = '<span class="trip-view-time_left passed">Hết hạn</span>';
             //document.getElementById("buyTrip").classList.add('ng-hide');
         } else {
             var diff = this.msToTime(diff_sec);
@@ -356,7 +356,7 @@ angular.module('starter.controllers', [])
 
         document.getElementsByTagName("name")[0].innerHTML = response.name;
         document.getElementsByTagName("detailss")[0].innerHTML = response.details;
-        var timeEle = document.getElementsByTagName("timev")[0];
+        var timeEle = document.getElementById("trip_timev_"+response.id);
         timeEle.parentNode.removeChild(timeEle);
         button.removeAttribute("ng-click");
     }
@@ -375,7 +375,7 @@ angular.module('starter.controllers', [])
             document.getElementById("trip_pricebuyv_"+response.id).innerHTML = "";
         } else {
             var pricebuy = parseInt(response.price)-parseInt(response.coin);
-            console.log(document.getElementById("trip_pricebuyv_"+response.id));
+            //console.log(document.getElementById("trip_pricebuyv_"+response.id));
             document.getElementById("trip_pricebuyv_"+response.id).innerHTML = 'Giá mua ngay: <b class="trip-coin-view">'+pricebuy+'k</b>';
 
             if (response.taxiid == taxiData.id) {
@@ -385,7 +385,7 @@ angular.module('starter.controllers', [])
                     //button.classList.add("disabled");
                     button.innerHTML = "Chuyến đã được mua";
                     button.removeAttribute("ng-click");
-                } else if (parseInt(response[i].coin) > parseInt(taxiData.coin)) { // not enough money
+                } else if (parseInt(response.coin) > parseInt(taxiData.coin)) { // not enough money
                     //button.classList.add("disabled");
                     button.innerHTML = "Bạn không đủ tiền";
                     button.removeAttribute("ng-click");
