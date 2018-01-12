@@ -1,0 +1,26 @@
+{
+  "name": "ion-place-autocomplete",
+  "version": "1.0.0",
+  "description": "by [http://devfanaticblog.com](http://devfanaticblog.com)",
+  "main": "ion-place-autocomplete.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimkk/ion-place-autocomplete.git"
+  },
+  "keywords": [
+    "angular",
+    "ionic",
+    "google",
+    "places",
+    "autocomplete"
+  ],
+  "author": "crazyivan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dimkk/ion-place-autocomplete/issues"
+  },
+  "homepage": "https://github.com/dimkk/ion-place-autocomplete#readme"
+}

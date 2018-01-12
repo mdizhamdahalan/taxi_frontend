@@ -1,0 +1,69 @@
+<html ng-app="ionicApp">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>Ionic Template</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&sensor=false"></script>
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <link href="ion-place-autocomplete.css" rel="stylesheet">
+    <script src="ion-place-autocomplete.js"></script>
+    <script src="ion-place-map.js"></script>
+    <script type="text/javascript">
+      angular.module('ionicApp', ['ionic', 'ion-place-tools'])
+      .controller('MyCtrl', function($scope, $timeout) {
+        $scope.x = { visible: false };
+        $scope.data = { //will contain address and latitude/longitude
+          address: ''
+        };
+        $scope.options = {
+          radius: 2000, // radius for place search
+          fitBounds: true, // fit map to bounds returned by search api
+          marker: false // show draggable marker on map
+        };
+
+        $scope.showMap = function () {
+          $scope.x.visible = true;
+        };
+
+        // this will be called on "OK" button click
+        $scope.successCallback = function () {
+          alert($scope.data.address + ' selected!');
+        };
+
+        $scope.showAlert = function (msg) {
+          alert(msg);
+        };
+
+        setTimeout(function () {
+          $scope.options.marker = true;
+          $scope.$apply();
+        }, 3000);
+      });
+    </script>
+  </head>
+
+  <body ng-controller="MyCtrl">
+    <ion-header-bar class="bar-stable">
+      <button class="button icon ion-navicon" ng-click="showAlert(22)"></button>
+      <h1 class="title">Ionic Blank Starter</h1>
+    </ion-header-bar>
+    <ion-content scroll="false">
+      <ion-google-place-map visible="x.visible" data="data" options="options" on-success="successCallback"></ion-google-place-map>
+      <br>
+      <b> Address: </b>{{ data.address }}
+      <br>
+      <b> Latitude: </b>{{ data.latitude }}
+      <br>
+      <b> Longitude: </b>{{ data.longitude }}
+      <br>
+      <br>
+      <div class="text-center">
+        <button class="button button-positive" ng-click="showMap()">Show Map</button>
+      </div>
+    </ion-content>
+  </body>
+
+</html>

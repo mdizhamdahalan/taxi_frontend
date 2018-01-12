@@ -1,0 +1,29 @@
+<html ng-app="ionicApp">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>Ionic Template</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&sensor=false"></script>
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <link href="ion-place-autocomplete.css" rel="stylesheet">
+    <script src="ion-place-autocomplete.js"></script>
+    <script type="text/javascript">
+      angular.module('ionicApp', ['ionic', 'ion-place-tools'])
+      .controller('MyCtrl', function($scope) {
+      });
+    </script>
+  </head>
+
+  <body ng-controller="MyCtrl">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Ionic Blank Starter</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-google-place placeholder="Your address" ng-model="data.address" required name="address" location-changed="locationChanged"/>
+    </ion-content>
+  </body>
+
+</html>

@@ -1,0 +1,34 @@
+{
+  "name": "ion-place-autocomplete",
+  "main": [
+    "ion-place-autocomplete.js",
+    "ion-place-autocomplete.css"
+  ],
+  "homepage": "https://github.com/ivanthecrazy/ion-place-autocomplete",
+  "authors": [
+    " ivanthecrazy"
+  ],
+  "description": "",
+  "keywords": [
+    "ionic",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "d327b4d2d8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d327b4d2d83c0076e99540228b887889f71527d3"
+  },
+  "_source": "https://github.com/dimkk/ion-place-autocomplete.git",
+  "_target": "*",
+  "_originalSource": "ion-place-autocomplete",
+  "_direct": true
+}

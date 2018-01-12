@@ -15,7 +15,7 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-.ion-navicon.disabled{display: none!important}
+.ion-navicon.disabled,.hidden{display: none!important}
 ion-nav-view *{font-size:14px;*color:#404d97;font-family:"-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif}
 time{font-size:14px!important;margin-right:30px!important}
 .time_left{color:#00a65a;font-weight:600;*font-size:13px}
@@ -67,6 +67,97 @@ ion-list .list ion-item:first-child .item-content{padding-right:10px!important}
 .list-myPriority .item{background:#f9eaea;border-top:1px solid #fadada!important;position:relative;}
 .list-myPriority .item:after{content:'[ƯU TIÊN]';position:absolute;top:15px;right:10px;font-size:11px}
 .refresh-button{position: absolute;right:0;float:right;z-index:1000;cursor:pointer}
+
+
+/* Sell */
+.form-group{margin-bottom:10px}
+.trip-info,.form-group label{display:block;border-bottom:0;margin-bottom:3px;font-size:13px;color:#666}
+/*input,.form-control{height:35px;box-shadow:none!important;*border-radius:0;background:#eee!important}
+input:focus,.form-control:focus, input:hover,.form-control:hover{background:#fff!important;border-width:0 0 2px!important;border-bottom-color:#ef473a!important;}
+.map_view_page{position:absolute;top:0;left:0;right:0;bottom:0}
+*/#tripInfo{margin-bottom:10px}
+.divide{border-bottom:1px dashed #ccc;position:relative;margin:15px 0}
+
+.selected_date_full,.heading,.button_set,.button_close,.selected_date{background:#ef473a!important;border-color:#ef473a!important}
+.date_col.today{border-color:#ef473a!important}
+#time_date{width:69%;margin-right:1%;float:left}
+#time_time{width:30%;float:left}
+
+#map {position:absolute;left:0;right:0;top:95px;bottom:115px}
+/*#pac-sidebar{position:absolute;background:#fff;right:0;left:0;top:0;height:100px;overflow:hidden;z-index:100!important;box-shadow:0 4px 3px rgba(0,0,0,.07)}
+#pac-sidebar input{width:100%;}
+*/.trip-ask{font-size:15px}
+.trip-add .trip-from, .trip-add .trip-to{margin-left:30px;padding-bottom:4px;position: relative}
+.trip-add .trip-from:before, .trip-add .trip-to:before{content:'';position: absolute;top:12px;left:-24px;width:7px;height:8px;background:#333;border-radius:100%}
+.trip-add .trip-to:before{top:14px}
+.trip-add .trip-from:after{content: '';position: absolute;top:23px;left:-22px;height:32px;width:3px;background:#343231;border-radius: 10px}
+/*.choose-seats{position:fixed;background:#fff;right:0;left:0;bottom:0;height:120px;overflow:hidden;z-index:100;text-align:center;padding:0 20px;*box-shadow: 5px 0 5px rgba(0,0,0,.17)}
+*/.seats-type{position:relative;width:200px;align:center;margin:10px auto 5px;cursor: pointer;color:#ef473a}
+.choose-seats .button{padding:0!important;min-height:30px!important;line-height:36px!important}
+.sone{text-decoration: none!important;position: relative;float:left;width:55px;height:55px;background: #e9e9e9;border-radius:100%;margin:0 5px;text-align:center;padding-top:11px;line-height:18px;font-size:20px;font-weight:600}
+.sone .small{color:#777;*font-style:italic;display:block;font-size:10px;font-weight:300}
+.sone.active,.sone:hover{background:#ef473a;color:#fff}
+.sone.active span,.sone:hover span{color:#fff}
+#trip-user-details{position:absolute;bottom:0;left:0;right:0;height:0;z-index:150!important;background:#fff;overflow:auto;transition-duration:.4s}
+#trip-user-details.active{height:100%;padding:20px;transition-duration:.4s}
+#tripInfo+button{float:right;margin:-35px 0 0}
+
+.form-control{position: relative;width:100%;border:1px solid #eee!important;padding:4px 10px!important;margin-bottom:5px!important}
+.form-label{position: relative;width:20%;float:left;margin-top:8px;font-size:13px}
+.form-field{position: relative;width:80%;float:right}
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+.gmnoprint a, .gmnoprint span, .gm-style-cc {display:none;}
+
+time{font-size:14px!important;margin-right:30px!important}
+.time_left{color:#00a65a;font-weight:600;*font-size:13px}
+.time_left.passed{color:#e84c3d}
+.trip-view-timeleft{margin:10px auto 0}
+.trip-details{margin-top:30px}
+.trip-view-time_left{color:#00a65a;font-size:24px;border:1px solid #dadada;box-shadow:0 0 3px inset rgba(0,0,0,.5);border-radius:4px;padding:10px 15px;text-align:center;margin:30px auto;display:block}
+h3.trip-destinations{font-size:14px!important;margin:8px 0 10px!important}
+.trip-view-time_left.passed{color:#e84c3d}
+.trip-info{margin-bottom:5px;font-size:14px}
+.trip-time{font-weight:600;color:#bc5004;margin-right:30px}
+.trip-seat{*margin-left:30px;font-weight:600;color:#a44abc}
+.trip-title{font-size:14px!important}
+.center{text-align:center}
+.trip-buy{margin-top:20px}
+.trip-coin{font-weight:600;margin-left:30px}
+.trip-coin,.trip-coin-view,.trip-pricecoin{color:#c6c030}
+.trip-pricecoin{font-weight:600;font-size:24px;float:left;margin:40px -69px 0;width:50px;text-align:center}
+.trip-price{font-weight:600;color:#0dabb4}
+.hist-pricecoin{font-weight:600;font-size:21px;float:left;margin:8px -69px 0;width:50px;text-align:center}
+.hist-pricecoin.buytrip{color:#c6c030}
+.hist-pricecoin.error{color:#e84c3d}
+.hist-pricecoin.add{color:#00a65a}
+.trip-is_round{color:#1a58b2;margin-left:30px}
+.trip-num_guess{font-weight:600;color:#49bcbb;margin-left:30px}
+time{border-radius:3px;box-shadow:0 2px 3px inset #333;background:#d4e7e7;padding:2px 9px 3px!important}
+buy{color:#e84c3d;font-weight:600}
+buy.my{color:#1a58b2}
+phone.trip-phone{width:200px;border:2px dashed #ddd;border-radius:4px;background:#fff;font-size:24px;padding:10px 15px 11px;text-align:center;margin:20px auto;font-size:20px;color:#b21b1b;display:block}
+.trip-destinations{font-size:16px!important;margin:7px 0 5px!important}
+.trip-pnr{font-weight:600}
+more,.trip-more{display:block;margin-top:15px;padding-top:10px;border-top:1px dashed #ddd}
+from,to,name{font-weight:600}
+from{color:#729b2d} to{color:#8139af}
+round,notround{font-size:15px!important;display:inline;margin:0 2px 0 3px}
+round::before,notround:before{font-size:20px!important}
+.item.item-complex,ion-list .list ion-item:first-child .item-content{background:transparent!important}
+ion-list .list ion-item:first-child .item-content{padding-right:10px!important}
+.taxi-coin{float:right;color:#c6c911}
+.left{float:left}.right{float:right}
+/*.list-today .item{background:#f9eaea;border-top:1px solid #fadada!important}
+*/.list-today .item{background:#dffada;border-top:1px solid #cfedc5!important;position:relative;}
+.list-today .item:after{content:'[HÔM NAY]';position:absolute;top:15px;right:10px;font-size:11px}
+.list-notSeen .item{background:#dffada;border-top:1px solid #cfedc5!important;position:relative;}
+.list-notSeen .item:after{content:'[CHƯA SỬ DỤNG]';position:absolute;top:15px;right:10px;font-size:11px}
+.back-button:not(.hide)+.buttons.buttons-left{display:none!important}
+.list-myPriority .item{background:#f9eaea;border-top:1px solid #fadada!important;position:relative;}
+.list-myPriority .item:after{content:'[ƯU TIÊN]';position:absolute;top:15px;right:10px;font-size:11px}
+.refresh-button{position: absolute;right:0;float:right;z-index:1000;cursor:pointer}
+
 
 /*-===========================ion-tabs ======================================-*/
 ion-tabs .tab-item {

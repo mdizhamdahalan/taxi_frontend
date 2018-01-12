@@ -28,6 +28,17 @@ angular.module('starter.services', [])
     }
 })
 
+/*.factory('SellService', function($q, $http) {
+    return {
+        request: function(formData) {
+            return $http.post(MAIN_URL+"/trip_add.php", formData).then(function(response) {
+                console.log(response);
+                return response.data;
+            });
+        }
+    }
+})*/
+
 .factory('AccountService', function($http) {
     return {
         getTaxiData: function(taxiid) {
@@ -43,55 +54,62 @@ angular.module('starter.services', [])
 })
 
 .factory('TripsService', function($http) {
-  // Might use a resource here that returns a JSON array
-  var trips = [];
+    // Might use a resource here that returns a JSON array
+    var trips = [];
 
-  return {
-    remove: function(trip) {
-      trips.splice(trips.indexOf(trip), 1);
-    },
-    getAll: function(taxiid) {
-      return $http.post(MAIN_URL+"/trip_all.php", {taxiid: taxiid})
-                .then(function(response) {
-//				console.log(response);
-        			trips = response.data;
-        			return trips;
-        		});
-    },
-    countAll: function (taxiid) {
-      return $http.post(MAIN_URL+"/trip_count_all.php", {taxiid: taxiid})
-                .then(function(response) {
-        			trips_num = response.data;
-        			return trips_num;
-        		});
-    },
-    getOne: function(tripID, taxiid) {
-        return $http.post(MAIN_URL+"/trip_one.php", {id: tripID, taxiid: taxiid})
-                  .then(function(response) {
-          			trip = response.data;
-          			return trip;
-          		});
-    },
-    getFullInfo: function(tripID, taxiid) {
-        return $http.post(MAIN_URL+"/trip_one_address.php", {id: tripID, taxiid: taxiid})
-                  .then(function(response) {
-          			return response.data;
-          		});
-    },
-    buy: function(tripID, taxiid) {
-        return $http.post(MAIN_URL+"/trip_buy.php", {id: tripID, taxiid: taxiid})
-                  .then(function(response) {
-          			return response.data;
-          		});
-    },
-    getAllBuy: function (taxiid) {
-        return $http.post(MAIN_URL+"/trip_all_buy.php", {taxiid: taxiid})
-                  .then(function(response) {
-          			trips = response.data;
-          			return trips;
-          		});
-    }
-  };
+    return {
+        add: function(formData) {
+            console.log(formData);
+            return $http.post(MAIN_URL+"/trip_add.php", formData).then(function(response) {
+                console.log(response);
+                return response.data;
+            });
+        },
+        remove: function(trip) {
+            trips.splice(trips.indexOf(trip), 1);
+        },
+        getAll: function(taxiid) {
+            return $http.post(MAIN_URL+"/trip_all.php", {taxiid: taxiid}).then(function(response) {
+                //console.log(response);
+                trips = response.data;
+                return trips;
+            });
+        },
+        countAll: function (taxiid) {
+            return $http.post(MAIN_URL+"/trip_count_all.php", {taxiid: taxiid}).then(function(response) {
+                trips_num = response.data;
+                return trips_num;
+            });
+        },
+        getOne: function(tripID, taxiid) {
+            return $http.post(MAIN_URL+"/trip_one.php", {id: tripID, taxiid: taxiid}).then(function(response) {
+                trip = response.data;
+                return trip;
+            });
+        },
+        getFullInfo: function(tripID, taxiid) {
+            return $http.post(MAIN_URL+"/trip_one_address.php", {id: tripID, taxiid: taxiid}).then(function(response) {
+                return response.data;
+            });
+        },
+        buy: function(tripID, taxiid) {
+            return $http.post(MAIN_URL+"/trip_buy.php", {id: tripID, taxiid: taxiid}).then(function(response) {
+                return response.data;
+            });
+        },
+        getAllBuy: function (taxiid) {
+            return $http.post(MAIN_URL+"/trip_all_buy.php", {taxiid: taxiid}).then(function(response) {
+                trips = response.data;
+                return trips;
+            });
+        },
+        getAllSell: function (taxiid) {
+            return $http.post(MAIN_URL+"/trip_all_sell.php", {taxiid: taxiid}).then(function(response) {
+                trips = response.data;
+                return trips;
+            });
+        }
+    };
 })
 
 
