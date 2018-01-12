@@ -53,6 +53,7 @@ angular.module('starter.services', [])
     getAll: function(taxiid) {
       return $http.post(MAIN_URL+"/trip_all.php", {taxiid: taxiid})
                 .then(function(response) {
+//				console.log(response);
         			trips = response.data;
         			return trips;
         		});
@@ -102,7 +103,7 @@ angular.module('starter.services', [])
       return $http.post(MAIN_URL+"/paycoin_all.php", {taxiid: taxiID})
                 .then(function(response) {
         			histories = response.data;
-                    console.log(histories);
+//                    console.log(histories);
         			return histories;
         		});
     },
@@ -125,13 +126,23 @@ angular.module('starter.services', [])
       return $http.post(MAIN_URL+"/infrienge_all.php", {taxiid: taxiID})
                 .then(function(response) {
         			infrienges = response.data;
-                    console.log(infrienges);
+//                    console.log(infrienges);
         			return infrienges;
         		});
     },
+
+
+    changeStatus: function(iID) {
+        return $http.post(MAIN_URL+"/infrienge_changeStatus.php", {id: iID})
+               // .then(function(response) {
+               //                 return response;
+               // });
+    },
+
     getOne: function(iID) {
         return $http.post(MAIN_URL+"/infrienge_one.php", {id: iID})
                 .then(function(response) {
+				console.log(response);
           			infrienge = response.data;
           			return infrienge;
                 });

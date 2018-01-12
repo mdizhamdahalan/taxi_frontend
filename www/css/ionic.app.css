@@ -21,7 +21,7 @@ time{font-size:14px!important;margin-right:30px!important}
 .time_left{color:#00a65a;font-weight:600;*font-size:13px}
 .time_left.passed{color:#e84c3d}
 .trip-view-timeleft{margin:10px auto 0}
-.trip-details{margin-top:30px}
+.trip-details{margin-top:60px}
 .trip-view-time_left{color:#00a65a;font-size:24px;border:1px solid #dadada;box-shadow:0 0 3px inset rgba(0,0,0,.5);border-radius:4px;padding:10px 15px;text-align:center;margin:30px auto;display:block}
 h3.trip-destinations{font-size:14px!important;margin:8px 0 10px!important}
 .trip-view-time_left.passed{color:#e84c3d}
@@ -57,7 +57,10 @@ ion-list .list ion-item:first-child .item-content{padding-right:10px!important}
 .taxi-coin{float:right;color:#c6c911}
 .left{float:left}.right{float:right}
 /*.list-today .item{background:#f9eaea;border-top:1px solid #fadada!important}
-*/.list-today .item{background:#dffada;border-top:1px solid #cfedc5!important;position:relative;}
+*/
+.list-notSeen .item{background:#dffada;border-top:1px solid #cfedc5!important;position:relative;}
+.list-notSeen .item:after{content:'[CHƯA XEM]';position:absolute;top:15px;right:10px;font-size:11px}
+.list-today .item{background:#dffada;border-top:1px solid #cfedc5!important;position:relative;}
 .list-today .item:after{content:'[HÔM NAY]';position:absolute;top:15px;right:10px;font-size:11px}
 .back-button:not(.hide)+.buttons.buttons-left{display:none!important}
 .list-myPriority .item{background:#f9eaea;border-top:1px solid #fadada!important;position:relative;}
@@ -6184,7 +6187,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 .item-content p {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+/* white-space: nowrap;*/ }
 
 a.item {
   color: inherit;

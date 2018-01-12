@@ -1,7 +1,24 @@
 <ion-view view-title="Lịch sử vi phạm">
+              <ion-nav-buttons side="right">
+                <button class="reloadbutton button button-clear button-positive" ng-click="refreshItems()">
+                    Refresh
+                </button>
+            </ion-nav-buttons>
+
   <ion-content>
+    <div class="list-notSeen">
+      <a ng-click="view({{infrienge.id}})" class="item item-remove-animate history-item"  style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" ng-repeat="infrienge in infrienges_notSeen" type="item-text-wrap">       
+	<h3>
+            <b>{{infrienge.time}}</b>
+	</h3>
+        <p class="animated fadeIn">
+            {{infrienge.details}}
+        </p>
+     </a>
+    </div>
+
     <div class="list">
-      <a ng-clicks="view({{infrienge.id}})" class="item item-remove-animate history-item" ng-repeat="infrienge in infrienges" type="item-text-wrap">
+      <a ng-click="view({{infrienge.id}})" class="item item-remove-animate history-item" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" ng-repeat="infrienge in infrienges_others" type="item-text-wrap">
         <h3>
             <b>{{infrienge.time}}</b>
         </h3>
@@ -10,5 +27,6 @@
         </p>
      </a>
     </div>
+
   </ion-content>
 </ion-view>

@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicSideMenuDelegate, $state, $ionicHistory, $rootScope, $timeout, $ionicLoading, $location, $interval, AccountService) {
+.controller('AppCtrl', function($scope, $ionicSideMenuDelegate, $state, $ionicHistory, InfriengeService, $rootScope, $timeout, $ionicLoading, $location, $interval, AccountService) {
     // Code you want executed every time view is opened
 //    $scope.taxiData = taxiData = {};
 //    $scope.$on('$ionicView.enter', function () {
@@ -41,6 +41,16 @@ angular.module('starter.controllers', [])
                 for (i = 0; i < cls.length; i++) cls[i].classList.add("ng-hide");
             }
         });
+
+	InfriengeService.getAll(taxiData.id).then(function(response) {
+        $timeout(function() {
+            //$scope.infrienges_notSeen = response.notSeen;
+	    $scope.infrienges_total = response.total;
+
+            $ionicLoading.hide();
+        }, 1000);
+	});
+
 
 //    }, 1000);
 
@@ -95,25 +105,34 @@ angular.module('starter.controllers', [])
 .controller('InfriengeCtrl', function($scope, $state, InfriengeService, $ionicPopup, $interval, $timeout, $ionicNavBarDelegate, $ionicLoading) {
     $ionicNavBarDelegate.showBackButton(false);
     $scope.taxiData = taxiData = JSON.parse(window.localStorage.getItem("session_taxi"));
+//    $scope.refreshItems();
 
-    $ionicLoading.show({
-        content: 'Loading',
-        animation: 'fade-in',
-        showBackdrop: true,
-        maxWidth: 200,
-        showDelay: 0
-    });
+    $scope.refreshItems = function () {
+        if (taxiData) {
+   	 $ionicLoading.show({
+        	content: 'Loading',
+	        animation: 'fade-in',
+        	showBackdrop: true,
+	        maxWidth: 200,
+        	showDelay: 0
+	    });
     InfriengeService.getAll(taxiData.id).then(function(response) {
         $timeout(function() {
-            $scope.infrienges = response; //Assign data received to $scope.data
+            $scope.infrienges_notSeen = response.notSeen; //Assign data received to $scope.data
+	    $scope.infrienges_others = response.others;
+
             $ionicLoading.hide();
         }, 1000);
     });
-
+	}
+   }
+	 $scope.refreshItems();
     $scope.view = function(iID) {
         $state.go('tab.infrienge.view', {iID: iID});
     }
+//    $scope.refreshItems();
 })
+
 .controller('InfriengeViewCtrl', function($scope, $state, $stateParams, InfriengeService, $ionicPopup, $interval, $ionicNavBarDelegate, $ionicLoading, $timeout) {
     $ionicNavBarDelegate.showBackButton(true);
     $scope.taxiData = taxiData = JSON.parse(window.localStorage.getItem("session_taxi"));
@@ -125,12 +144,28 @@ angular.module('starter.controllers', [])
         maxWidth: 200,
         showDelay: 0
     });
+    $scope.infrienge  = {};
+    $scope.iID = $stateParams.iID;
+//    console.log($stateParams);
+
+   // Change status
+    InfriengeService.changeStatus($scope.iID);//.then(function(response) {
+ //       $timeout(function() {
+ //           $scope.infrienge = response; //Assign data received to $scope.data
+
+//            $ionicLoading.hide();
+//        }, 1000);
+//    });
+
+    // Get One
     InfriengeService.getOne($scope.iID).then(function(response) {
         $timeout(function() {
             $scope.infrienge = response; //Assign data received to $scope.data
+
             $ionicLoading.hide();
         }, 1000);
     });
+
 })
 
 .controller('BuyCtrl', function($scope, $state, TripsService, $ionicPopup, $interval, $timeout, $ionicNavBarDelegate, $ionicLoading, $location) {
@@ -350,7 +385,7 @@ angular.module('starter.controllers', [])
         } else {
             document.getElementById("trip_from_"+response.id).innerHTML = response.addressfrom_full;
             document.getElementById("trip_to_"+response.id).innerHTML = response.addressto_full;
-            document.getElementById("trip_phone_"+response.id).innerHTML = response.phone;
+            document.getElementById("trip_phone_"+response.id).innerHTML = '<a href="tel:' + response.phone + '">' + response.phone + '</a>';
             document.getElementById("trip_phone_"+response.id).classList.remove("ng-hide");
         }
 
@@ -599,7 +634,7 @@ angular.module('starter.controllers', [])
                 });
             } else {
                 taxiData = data;
-
+//		console.log(taxiData);
                 document.getElementsByTagName("info")[0].innerHTML = taxiData.name;
                 document.getElementsByTagName("coin")[0].innerHTML = taxiData.coin+"k";
 
@@ -685,7 +720,7 @@ angular.module('starter.controllers', [])
             showDelay: 0
         });
         $timeout(function() {
-            //console.log(taxiData);
+//            console.log(taxiData);
             $scope.account = taxiData;
             $ionicLoading.hide();
         }, 1000);

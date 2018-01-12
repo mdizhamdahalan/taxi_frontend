@@ -176,6 +176,15 @@ angular.module('starter', ['ionic', 'chart.js', 'starter.controllers', 'starter.
 			}
 		}
 	})
+
+	.state('tab.rules', {
+                url: '/rules',
+                views: {
+                        'menuContent': {
+                                templateUrl: 'templates/tab-rules.html',
+                        }
+                }
+        })
   
   
 	.state('tab.password', {

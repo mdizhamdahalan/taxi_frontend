@@ -5,11 +5,6 @@
             <ion-nav-buttons side="left">
                 <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
             </ion-nav-buttons>
-            <ion-nav-buttons side="right">
-                <button class="reloadbutton button button-clear button-positive" ng-click="reload()">
-                    Refresh
-                </button>
-            </ion-nav-buttons>
         </ion-nav-bar>
         <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
     </ion-side-menu-content>
@@ -22,9 +17,9 @@
         <ion-content>
             <ion-list>
                 <ion-item menu-close href="#/tab/account">
-                    <info class="left">{{taxiData.name}}</info>
-                    <coin class="taxi-coin right">{{taxiData.coin}}k</coin></br>
-                    <idcar class="left">Biển số xe: {{taxiData.idcar}}</idcar></br><typecar class="left">Loại xe: {{taxiData.typecar}}</typecar></br><seat class="left">Số chỗ: {{taxiData.seat}}</seat></br><idcard class="left">Số chỗ: {{taxiData.idcard}}</idcard>
+                    <info class="left"><b>{{taxiData.name}}</b></info>
+                    <coin class="taxi-coin right"><b>{{taxiData.coin}}k</b></coin></br>
+                    <idcar class="left"><b>Biển số xe:</b> {{taxiData.idcar}}</idcar></br><typecar class="left"><b>Loại xe:</b> {{taxiData.typecar}}</typecar></br><seat class="left"><b>Số chỗ:</b> {{taxiData.seat}}</seat></br><idcard class="left"><b>Số chỗ:</b> {{taxiData.idcard}}</idcard>
                 </ion-item>
                 <ion-item menu-close href="#/tab/trips">
                      Mua chuyến
@@ -36,7 +31,7 @@
                     Lịch sử giao dịch
                 </ion-item>
                 <ion-item menu-close href="#/tab/infrienge">
-                    Lịch sử vi phạm
+                    Lịch sử vi phạm <span style="color: red;"> <b>[{{infrienges_total}}]</b> <span>
                 </ion-item>
                 <ion-item menu-close href="#/tab/rules">
                     Quy định
@@ -53,6 +48,7 @@
             </ion-list>
         </br>
         <center>Liên hệ: <a href="tel:+842462810099">0246.281.0099</a></center></br>
+	<center><b>Đông Dương D.C. Xin kính chào.</b></center></br>
         </ion-content>
 
     </ion-side-menu>
