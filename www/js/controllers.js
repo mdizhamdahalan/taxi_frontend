@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicSideMenuDelegate, $state, $ionicHistory, InfriengeService, $rootScope, $timeout, $ionicLoading, $location, $interval, AccountService) {
     // Code you want executed every time view is opened
 //    $scope.taxiData = taxiData = {};
-//    $scope.$on('$ionicView.enter', function () {
+//    $scope.$on('$ionicView.beforeEnter', function () {
 //    $timeout(function () {
         $scope.taxiData = taxiData = JSON.parse(window.localStorage.getItem("session_taxi"));
 //        //console.log(taxiData);
@@ -31,6 +31,7 @@ angular.module('starter.controllers', [])
             }.bind(this), 1000);
 
         }
+//    });
 
         $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             if ($location.path() == "/tab/trips") {
