@@ -62,7 +62,7 @@ angular.module('starter.controllers', [])
 
 
 .controller('HistoryCtrl', function($scope, $state, HistoryService, $ionicPopup, $interval, $timeout, $ionicNavBarDelegate, $ionicLoading) {
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(true);
     $scope.taxiData = taxiData = JSON.parse(window.localStorage.getItem("session_taxi"));
 
     $ionicLoading.show({
@@ -103,7 +103,7 @@ angular.module('starter.controllers', [])
 
 
 .controller('InfriengeCtrl', function($scope, $state, InfriengeService, $ionicPopup, $interval, $timeout, $ionicNavBarDelegate, $ionicLoading) {
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(true);
     $scope.taxiData = taxiData = JSON.parse(window.localStorage.getItem("session_taxi"));
 //    $scope.refreshItems();
 
@@ -169,7 +169,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('BuyCtrl', function($scope, $state, TripsService, $ionicPopup, $interval, $timeout, $ionicNavBarDelegate, $ionicLoading, $location) {
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(true);
     $scope.taxiData = taxiData = JSON.parse(window.localStorage.getItem("session_taxi"));
 
     $scope.refreshItems = function () {
@@ -222,7 +222,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TripsCtrl', function($scope, $state, TripsService, $ionicPopup, $interval, $timeout, $ionicNavBarDelegate, $ionicLoading, $location, $rootScope) {
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(true);
     $scope.taxiData = taxiData = JSON.parse(window.localStorage.getItem("session_taxi"));
 
     $scope.loadTimeLeft = function(response) {
@@ -581,6 +581,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state, $ionicSideMenuDelegate, $ionicNavBarDelegate, $ionicHistory, $rootScope) {
+    if (taxiData) {
+        $state.go('tab.trips');
+        return ;
+    }
+
+    $ionicSideMenuDelegate.canDragContent(false);
     $ionicNavBarDelegate.showBackButton(false);
 
     $scope.data = {};
@@ -633,6 +639,8 @@ angular.module('starter.controllers', [])
                     }]
                 });
             } else {
+                $ionicSideMenuDelegate.canDragContent(true);
+                $ionicNavBarDelegate.showBackButton(true);
                 taxiData = data;
 //		console.log(taxiData);
                 document.getElementsByTagName("info")[0].innerHTML = taxiData.name;
@@ -708,7 +716,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope, $state, $stateParams, $ionicPopup, $interval, $timeout, $ionicNavBarDelegate, $ionicLoading) {
-    $ionicNavBarDelegate.showBackButton(false);
+    $ionicNavBarDelegate.showBackButton(true);
     $scope.taxiData = taxiData = JSON.parse(window.localStorage.getItem("session_taxi"));
 
     if (taxiData) {
