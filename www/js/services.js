@@ -59,9 +59,9 @@ angular.module('starter.services', [])
 
     return {
         add: function(formData) {
-            console.log(formData);
+            //console.log(formData);
             return $http.post(MAIN_URL+"/trip_add.php", formData).then(function(response) {
-                console.log(response);
+                //console.log(response);
                 return response.data;
             });
         },
@@ -160,7 +160,7 @@ angular.module('starter.services', [])
     getOne: function(iID) {
         return $http.post(MAIN_URL+"/infrienge_one.php", {id: iID})
                 .then(function(response) {
-				console.log(response);
+				//console.log(response);
           			infrienge = response.data;
           			return infrienge;
                 });
