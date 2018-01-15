@@ -1,14 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.myapp349693" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>myapp</name>
+<widget id="com.dongduong.taxi_taxi349693" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Taxi</name>
     <description>
         An Ionic Framework and Cordova project.
     </description>
     <author email="you@example.com" href="http://example.com.com/">
       Your Name Here
     </author>
-    <content src="index.html" />
+    <content origin-src="index.html" src="http://datxenoibai.com:8100" />
     <access origin="*" />
+    <allow-intent href="mailto:*" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="http://45.119.83.5:8100" />
+    <allow-navigation href="http://www.datxenoibai.com:8100" />
+    <allow-navigation href="http://datxenoibai.com:8100" />
     <allow-intent href="mailto:*" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
@@ -40,7 +45,6 @@
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
-    <allow-navigation href="http://*/*" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value=" " />
